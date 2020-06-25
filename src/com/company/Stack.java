@@ -1,11 +1,11 @@
 package com.company;
 
 public class Stack {
-    int stack[];
+    public int[] stack;
     int last = 0;
 
     Stack(int sz) {
-        stack = new int[sz];
+        this.stack = new int[sz];
     }
 
     public boolean push(int num) {
@@ -25,8 +25,9 @@ public class Stack {
             intBool.bool = false;
             return intBool;
         }
-        intBool.num = stack[last];
         --last;
+        intBool.num = stack[last];
+        intBool.bool = true;
         return intBool;
     }
 
