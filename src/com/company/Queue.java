@@ -1,11 +1,11 @@
 package com.company;
 
-public class Que {
+public class Queue {
     int[] arr;
     int sz;
     int last = 0;
 
-    Que(int sz)
+    Queue(int sz)
     {
         this.arr = new int[sz];
         this.sz = sz;
