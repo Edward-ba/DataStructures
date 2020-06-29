@@ -1,20 +1,12 @@
 package com.company;
 
 public class Queue {
-    int[] arr;
-    int sz;
+    int[] arr = new int[2147483647];
     int last = 0;
-
-    Queue(int sz)
-    {
-        this.arr = new int[sz];
-        this.sz = sz;
-    }
+    int first = 0;
 
     public boolean push(int num)
     {
-        if (last >= sz)
-            return false;
         arr[last] = num;
         ++last;
         return true;
@@ -22,23 +14,17 @@ public class Queue {
 
     public IntBool pop()
     {
-        int tmp;
         IntBool intBool = new IntBool();
-        if (last <= 0)
+        if (last == first)
         {
             intBool.bool = false;
             return intBool;
         }
 
-        intBool.num = arr[0];
+        intBool.num = arr[first];
         intBool.bool = true;
+        ++first;
 
-        for (int i = 0; i < last; ++i)
-        {
-            tmp = arr[i + 1];
-            arr[i] = tmp;
-        }
-        --last;
         return intBool;
     }
 }
