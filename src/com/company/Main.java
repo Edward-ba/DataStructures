@@ -4,8 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
 	    // write your code here
-        Stack stk = new Stack(10);
-        Queue queue = new Queue(10);
+        Stack stk = new Stack();
+        Queue queue = new Queue();
 
         stk.push(4);
         System.out.println(stk.pop().bool);

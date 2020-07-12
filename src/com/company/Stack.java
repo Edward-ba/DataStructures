@@ -1,34 +1,74 @@
 package com.company;
 
 public class Stack {
-    public int[] stack;
+    int[] arr;
     int last = 0;
+    int size;
 
-    Stack(int sz) {
-        this.stack = new int[sz];
+    void Stack(int size) {
+        arr = new int[size];
+        this.size = size;
+    }
+
+    void Display()
+    {
+        for (int i = 0;i < last;++i)
+            System.out.print(arr[i]);
+        System.out.println();
     }
 
     public boolean push(int num) {
-        if (last >= stack.length)
-        {
+        if (last >= arr.length)
             return false;
-        }
-        stack[last] = num;
+        arr[last] = num;
          ++last;
         return true;
     }
 
     public IntBool pop() {
         IntBool intBool = new IntBool();
-        if (last == 0)
-        {
+        if (last == 0) {
             intBool.bool = false;
             return intBool;
         }
         --last;
-        intBool.num = stack[last];
+        intBool.num = arr[last];
         intBool.bool = true;
         return intBool;
+    }
+
+    public IntBool peek(int index) {
+        IntBool intBool = new IntBool();
+        if (last == 0 || index >= last) {
+            intBool.bool = false;
+            return intBool;
+        }
+        intBool.bool = true;
+        intBool.num = arr[index];
+        return intBool;
+    }
+
+    public IntBool stackTop() {
+        IntBool intBool = new IntBool();
+        if (!isEmpty()) {
+            intBool.bool = false;
+            return intBool;
+        }
+        intBool.num = arr[last - 1];
+        intBool.bool = true;
+        return intBool;
+    }
+
+    public boolean isEmpty() {
+        if (last == 0)
+            return true;
+        return false;
+    }
+
+    public boolean isFull() {
+        if (last == size - 1)
+            return true;
+        return false;
     }
 
 }

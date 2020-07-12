@@ -1,7 +1,7 @@
 package com.company;
 
 public class Queue {
-    int[] arr = new int[2147483647];
+    int[] arr = new int[10];
     int last = 0;
     int first = 0;
 
@@ -25,6 +25,18 @@ public class Queue {
         intBool.bool = true;
         ++first;
 
+        return intBool;
+    }
+
+    public IntBool peek(int index) {
+        IntBool intBool = new IntBool();
+        index += first;
+        if (last == first || index >= last) {
+            intBool.bool = false;
+            return intBool;
+        }
+        intBool.bool = true;
+        intBool.num = arr[index];
         return intBool;
     }
 }
