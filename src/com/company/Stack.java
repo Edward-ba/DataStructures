@@ -1,14 +1,11 @@
 package com.company;
+import java.lang.*;
+import java.util.*;
 
 public class Stack {
-    int[] arr;
+    int[] arr = new int[10];
     int last = 0;
     int size;
-
-    void Stack(int size) {
-        arr = new int[size];
-        this.size = size;
-    }
 
     void Display()
     {
